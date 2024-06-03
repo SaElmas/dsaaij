@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Data Structures and Algorithms in Java</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-dark">
+            <link rel="stylesheet" type="text/css" href="./style.css" />
+<h1 id="data-structures-and-algorithms-in-java">Data Structures and Algorithms in Java</h1>
+<p>Authors: Michael T. Goodrich, Irvine Roberto, Michael H. Goldwasser</p>
+<h2 id="chapter-1-java-primer">Chapter 1. Java Primer</h2>
+<h3 id="reinforcement">Reinforcement</h3>
+<div class="q-box">
+<p><strong>R-1.1.</strong> Write a short Java method, <code>inputAllBaseTypes</code>, that inputs a different value of each base type from the standard input device and prints it back to the standard output device.</p>
+<details>
+<summary>Solution</summary>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">inputAllBaseTypes</span><span class="hljs-params">()</span>{
+    <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);
+    <span class="hljs-type">boolean</span> bo;
+    <span class="hljs-type">byte</span> by;
+    <span class="hljs-type">short</span> sh;
+    <span class="hljs-type">int</span> i;
+    <span class="hljs-type">long</span> l;
+    <span class="hljs-type">float</span> f;
+    <span class="hljs-type">double</span> d;
+
+    System.out.print(<span class="hljs-string">&quot;Enter a boolean value: &quot;</span>);
+    bo = sc.nextBoolean();
+    System.out.println(<span class="hljs-string">&quot;The boolean value you entered is: &quot;</span> + bo);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a byte value: &quot;</span>);
+    by = sc.nextByte();
+    System.out.println(<span class="hljs-string">&quot;The byte value you entered is: &quot;</span>+ by);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a short value: &quot;</span>);
+    sh = sc.nextShort();
+    System.out.println(<span class="hljs-string">&quot;The short value you entered is: &quot;</span>+ sh);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a int value: &quot;</span>);
+    i = sc.nextInt();
+    System.out.println(<span class="hljs-string">&quot;The int value you entered is: &quot;</span>+ i);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a long value: &quot;</span>);
+    l = sc.nextLong();
+    System.out.println(<span class="hljs-string">&quot;The long value you entered is: &quot;</span> + l);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a float value: &quot;</span>);
+    f = sc.nextFloat();
+    System.out.println(<span class="hljs-string">&quot;The float you enter is: &quot;</span> + f);
+
+    System.out.print(<span class="hljs-string">&quot;Enter a double value: &quot;</span>);
+    d = sc.nextDouble();
+    System.out.println(<span class="hljs-string">&quot;The double value yuo entered is: &quot;</span> + d);
+
+
+
+    sc.close();       
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box" markdown=1>
+<p><strong>R-1.2.</strong> Suppose that we create an array <code>A</code> of <code>GameEntry</code> objects, which has an integer scores field, and we clone <code>A</code> and store the result in an array <code>B</code>. If we then immediately set <code>A[4].score</code> equal to 550, what is the score value of the <code>GameEntry</code> object referenced by<code> B[4]</code>?</p>
+<details>
+<summary>Solution</summary>
+Since the integer field is a primitive type we expect the array B wont get effected.
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.3.</strong> Write a short Java method, <code>isMultiple</code>, that takes two <code>long</code> values, <code>n</code> and <code>m</code>, and returns <code>true</code> if and only if <code>n</code> is a multiple of <code>m</code>, that is, <code>n = mi</code> for some integer <code>i</code>.</p>
+<details>
+<summary>Solution</summary>
+Solution on `Chapter1.java` file.
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isMultiple</span><span class="hljs-params">(<span class="hljs-type">long</span> m, <span class="hljs-type">long</span> n)</span>{
+    <span class="hljs-keyword">return</span> m%n == <span class="hljs-number">0</span>;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.4.</strong> Write a short Java method, isEven, that takes an int <code>i</code> and returns <code>true</code> if and only if <code>i</code> is even. Your method cannot use the multiplication, modulus, or division operators, however.</p>
+<details>
+<summary>Solution</summary>
+ Solution on `Chapter1.java` file.
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isEven</span><span class="hljs-params">(<span class="hljs-type">int</span> i)</span>{
+<span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>){
+   <span class="hljs-keyword">while</span>(i&gt;<span class="hljs-number">1</span>){
+       i -=<span class="hljs-number">2</span>;
+   }
+} <span class="hljs-keyword">else</span> {
+   <span class="hljs-keyword">while</span>(i&lt;-<span class="hljs-number">1</span>){
+       i += <span class="hljs-number">2</span>;
+   }
+}
+<span class="hljs-keyword">if</span>(i==<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+   }
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.5.</strong> Write a short Java method that takes an integer <code>n</code> and returns the sum of all positive integers less than or equal to <code>n</code>.</p>
+<details>
+<summary>Solution</summary>
+<p>In the file of <code>Chater1.java</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">addN</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>{
+    <span class="hljs-keyword">return</span> n*(n+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.6</strong>. Write a short Java method that takes an integer <code>n</code> and returns the sum of all the odd positive integers less than or equal to <code>n</code>.</p>
+<details>
+<summary>Solution</summary>
+<p>In the file of <code>Chapter1.java</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">addOddsN</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>{
+    <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">0</span> ; i&lt;= n ; i++){
+        <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span> == <span class="hljs-number">1</span>){
+            sum += i;
+        }
+    }
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.7</strong>. Write a short Java method that takes an integer <code>n</code> and returns the sum of the squares of all positive integers less than or equal to <code>n</code>.</p>
+<details>
+<summary>Solution</summary>
+<p>In the file of <code>Chapter1.java</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sumSquares</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>{
+    <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span> ; i&lt;=n ; i++){
+        sum += i*i;
+    }
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.8</strong>. Write a short Java method that counts the number of vowels in a given character string.</p>
+<details>
+<summary>Solution</summary>
+<p>In the file of <code>Chapter1.java</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">sumSquares</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span>{
+    <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    <span class="hljs-type">int</span> <span class="hljs-variable">sum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span> ; i&lt;=n ; i++){
+        sum += i*i;
+    }
+    <span class="hljs-keyword">return</span> sum;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.8</strong> Write a short Java method that counts the number of vowels in a given character string.</p>
+<details>
+<summary>Solution</summary>
+<p>In the file of <code>Chapter1.java</code></p>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countVowels</span><span class="hljs-params">(String str)</span>{
+
+    <span class="hljs-type">int</span> <span class="hljs-variable">counter</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;
+    str = str.toLowerCase();
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span> ; i&lt;str.length() ; i++){
+        <span class="hljs-keyword">if</span>( str.charAt(i) == <span class="hljs-string">&#x27;a&#x27;</span> || 
+            str.charAt(i) == <span class="hljs-string">&#x27;e&#x27;</span> || 
+            str.charAt(i) == <span class="hljs-string">&#x27;i&#x27;</span> ||
+            str.charAt(i) == <span class="hljs-string">&#x27;o&#x27;</span> ||
+            str.charAt(i) == <span class="hljs-string">&#x27;u&#x27;</span>
+            ){
+            counter++;
+        }
+    }
+
+    <span class="hljs-keyword">return</span> counter;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.9</strong> Write a short Java method that uses a <code>StringBuilder</code> instance to remove all the punctuation from a string <code>s</code> storing a sentence, for example, transforming the string <code>&quot;Let’s try, Mike!&quot;</code> to <code>&quot;Lets try Mike&quot;</code>.</p>
+<details>
+<p>In the file of <code>Chapter1.java</code></p>
+<summary>Solution</summary>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">removePunc</span><span class="hljs-params">(String str)</span>{
+
+    <span class="hljs-type">String</span> <span class="hljs-variable">ret_str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i=<span class="hljs-number">0</span> ; i&lt;str.length() ; i++){
+        <span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> str.charAt(i);
+        <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> (<span class="hljs-type">int</span>) c;
+        <span class="hljs-keyword">if</span> (
+            code &lt; <span class="hljs-number">48</span> || 
+            (code &gt; <span class="hljs-number">57</span> &amp;&amp; code &lt; <span class="hljs-number">65</span>) ||
+            (code &gt; <span class="hljs-number">90</span> &amp;&amp; code &lt; <span class="hljs-number">97</span>) ||
+            code &gt; <span class="hljs-number">122</span>) {
+                <span class="hljs-keyword">continue</span>;
+            }
+        ret_str += c;
+    }
+    <span class="hljs-keyword">return</span> ret_str;
+}
+</code></pre>
+</details>
+</div>
+<div class="q-box">
+<p><strong>R-1.10</strong> Write a Java class, <code>Flower</code>, that has three instance variables of type <code>String</code>,<code>int</code>, and <code>float</code>, which respectively represent the name of the flower, its number of
+petals, and price. Your class must include a constructor method that initializes
+each variable to an appropriate value, and your class should include methods for
+setting the value of each type, and getting the value of each type.</p>
+<details>
+<p>In the file of <code>Flower.java</code></p>
+<summary>Solution</summary>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Flower</span> {
+    String name;
+    <span class="hljs-type">int</span> petals;
+    <span class="hljs-type">float</span> price;
+
+    Flower() {
+        name = <span class="hljs-string">&quot;&quot;</span>;
+        petals = <span class="hljs-number">0</span>;
+        price = <span class="hljs-number">0</span>;
+    }
+
+    Flower(String n, <span class="hljs-type">int</span> p, <span class="hljs-type">float</span> pr) {
+        name = n;
+        petals = p;
+        price = pr;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setName</span><span class="hljs-params">(String n)</span> {
+        name = n;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPetals</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span> {
+        petals = p;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setPrice</span><span class="hljs-params">(<span class="hljs-type">float</span> p)</span> {
+        price = p;
+    }
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getName</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">getPetals</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> petals;
+    }
+
+    <span class="hljs-keyword">public</span> <span class="hljs-type">float</span> <span class="hljs-title function_">getPrice</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> price;
+    }
+
+    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">toString</span><span class="hljs-params">()</span> {
+        <span class="hljs-keyword">return</span> name + <span class="hljs-string">&quot;:&quot;</span> + petals + <span class="hljs-string">&quot;:&quot;</span> + price;
+    }
+
+}
+</code></pre>
+</details>
+</div>
+            
+            
+        </body>
+        </html>

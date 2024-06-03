@@ -3,9 +3,11 @@ import java.util.Scanner;
 class Chapter1{
     public static void main(String[] args){
 
-        String s = "%Kare//[S_ait";
-        System.out.println(removePunc(s));
-
+        Flower f1 = new Flower("daisy", 7, 2);
+        System.out.println(f1);
+        f1.setPetals(34);
+        f1.setPrice(45.2f);
+        System.out.println(f1);
     }
 
     public static void inputAllBaseTypes(){

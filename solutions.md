@@ -272,3 +272,69 @@ public static String removePunc(String str){
 </details>
 
 </div>
+
+<div class="q-box">
+
+**R-1.10** Write a Java class, `Flower`, that has three instance variables of type `String`,`int`, and `float`, which respectively represent the name of the flower, its number of
+petals, and price. Your class must include a constructor method that initializes
+each variable to an appropriate value, and your class should include methods for
+setting the value of each type, and getting the value of each type.
+
+<details>
+
+In the file of `Flower.java`
+
+<summary>Solution</summary>
+
+```java
+public class Flower {
+    String name;
+    int petals;
+    float price;
+
+    Flower() {
+        name = "";
+        petals = 0;
+        price = 0;
+    }
+
+    Flower(String n, int p, float pr) {
+        name = n;
+        petals = p;
+        price = pr;
+    }
+
+    public void setName(String n) {
+        name = n;
+    }
+
+    public void setPetals(int p) {
+        petals = p;
+    }
+
+    public void setPrice(float p) {
+        price = p;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPetals() {
+        return petals;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public String toString() {
+        return name + ":" + petals + ":" + price;
+    }
+
+}
+```
+
+</details>
+
+</div>
