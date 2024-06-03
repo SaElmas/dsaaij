@@ -248,6 +248,26 @@ public static int countVowels(String str){
 In the file of `Chapter1.java`
 <summary>Solution</summary>
 
+```java
+public static String removePunc(String str){
+
+    String ret_str = "";
+    for (int i=0 ; i<str.length() ; i++){
+        char c = str.charAt(i);
+        int code = (int) c;
+        if (
+            code < 48 || 
+            (code > 57 && code < 65) ||
+            (code > 90 && code < 97) ||
+            code > 122) {
+                continue;
+            }
+        ret_str += c;
+    }
+    return ret_str;
+}
+```
+
 
 </details>
 

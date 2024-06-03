@@ -3,7 +3,8 @@ import java.util.Scanner;
 class Chapter1{
     public static void main(String[] args){
 
-        System.out.println(countVowels("TRYiI"));
+        String s = "%Kare//[S_ait";
+        System.out.println(removePunc(s));
 
     }
 
@@ -110,4 +111,21 @@ class Chapter1{
         return counter;
     }
 
+    public static String removePunc(String str){
+
+        String ret_str = "";
+        for (int i=0 ; i<str.length() ; i++){
+            char c = str.charAt(i);
+            int code = (int) c;
+            if (
+                code < 48 || 
+                (code > 57 && code < 65) ||
+                (code > 90 && code < 97) ||
+                code > 122) {
+                    continue;
+                }
+            ret_str += c;
+        }
+        return ret_str;
+    }
 }
